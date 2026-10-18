@@ -41,7 +41,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
   const siteName = siteNameOf(settings);
   const page = (
     <>
-      <Header siteName={siteName} logo={settings.logo} links={navLinks(settings)} />
+      <Header siteName={siteName} links={navLinks(settings)} />
       <main className="flex-1">{children}</main>
       <Footer settings={settings} />
     </>
