@@ -49,3 +49,6 @@ next-env.d.ts
 /test-results/
 /playwright-report/
 /blob-report/
+
+# Lokale Vorschau mit den Originalbildern (npm run preview:local)
+/public/preview/

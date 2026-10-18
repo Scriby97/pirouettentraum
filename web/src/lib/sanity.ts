@@ -3,10 +3,13 @@ import { createImageUrlBuilder, type SanityImageSource } from "@sanity/image-url
 import { defineQuery } from "groq";
 import type { RichText, SETTINGS_QUERY_RESULT } from "../sanity.types";
 import { e2eSettings } from "./e2e-fixtures";
+import { localPreviewSettings } from "./local-preview";
 import { placeholderSettings } from "./placeholder";
 
 // E2E=1: feste Testdaten für die automatischen Tests (npm run test:e2e), unabhängig von den echten Inhalten
 const e2e = process.env.E2E === "1";
+// LOCAL_PREVIEW=1: Texte und Bilder der alten Seite ohne Sanity anzeigen (siehe local-preview.ts)
+const localPreview = process.env.LOCAL_PREVIEW === "1";
 const projectId = e2e ? undefined : process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || "production";
 
@@ -44,6 +47,7 @@ export type GalleryItem = NonNullable<SiteSettings["gallery"]>[number];
 
 export async function getSettings(): Promise<SiteSettings> {
   if (e2e) return e2eSettings;
+  if (localPreview) return localPreviewSettings;
   if (!client) return placeholderSettings;
   return (await client.fetch(SETTINGS_QUERY)) ?? {};
 }
@@ -51,9 +55,16 @@ export async function getSettings(): Promise<SiteSettings> {
 /** Bild-URL; mit `crop` schneidet Sanity auf dieses Seitenverhältnis zu – nach dem Bildausschnitt (Hotspot) im Studio */
 export function imageUrl(image?: SanityImage | null, crop?: { width: number; height: number }): string | null {
   // Bildplatz ohne Datei (im Studio hinzugefügt, aber leer gelassen): kein Bild statt Build-Abbruch
-  if (!builder || !image || (typeof image === "object" && "_type" in image && !("asset" in image && image.asset))) {
+  if (!image || (typeof image === "object" && "_type" in image && !("asset" in image && image.asset))) {
     return null;
   }
+  if (!builder && !localPreview) {
+    return null;
+  }
+  // Lokale Vorschau: Bild aus public/preview
+  const ref = typeof image === "object" && "asset" in image ? (image.asset as { _ref?: string } | undefined)?._ref : undefined;
+  if (ref?.startsWith("image-local-")) return `/preview/${ref.slice("image-local-".length)}`;
+  if (!builder) return null;
   const img = builder.image(image);
   return (crop ? img.width(crop.width).height(crop.height).fit("crop") : img).url();
 }

@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "eslint",
     "test:e2e": "playwright test",
-    "test:e2e:report": "playwright show-report"
+    "test:e2e:report": "playwright show-report",
+    "preview:local": "node -e \"require('child_process').spawn('npx next dev', {stdio: 'inherit', shell: true, env: {...process.env, LOCAL_PREVIEW: '1'}})\""
   },
   "dependencies": {
     "@portabletext/react": "^8.0.1",
