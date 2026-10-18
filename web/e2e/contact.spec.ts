@@ -16,6 +16,7 @@ test("Anfrage: alles kommt in der Mail an", async ({ page }) => {
   const mail = forms[0];
   expect(mail.subject).toBe("Anfrage von Test Mami");
   expect(mail.email).toBe("mami@example.ch");
+  expect(mail.from_name).toBe("Website Pirouettentraum");
   expect(mail.Telefon).toBe("–");
   expect(mail["Bis wann"]).toBe("Wettkampf im März");
   expect(mail["Kürmusik / Thema"]).toBe("Schwanensee");

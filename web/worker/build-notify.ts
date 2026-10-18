@@ -27,7 +27,7 @@ export function buildNotification(event: BuildEvent): Notification | null {
   const worker = event.source?.workerName ?? "pirouettentraum";
   const trigger = event.payload?.buildTriggerMetadata;
   const commit = [trigger?.commitHash?.slice(0, 7), trigger?.commitMessage?.split("\n")[0]].filter(Boolean).join(" ");
-  // Push auf GitHub oder Deploy-Hook (= Evi hat im Studio auf «Publish» geklickt)
+  // Push auf GitHub oder Deploy-Hook (= im Studio auf «Publish» geklickt)
   const cause = trigger?.buildTriggerSource === "push_event" ? `Push von ${trigger.author ?? "?"}` : "Änderung im Studio";
   const { accountId } = event.metadata ?? {};
   const buildId = event.payload?.buildUuid;

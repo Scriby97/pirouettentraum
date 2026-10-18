@@ -1,4 +1,4 @@
-# Bei jedem Push: Typen, Lint und die automatischen Tests (Warenkorb, Bestellung, Anfrage, Barrierefreiheit).
+# Bei jedem Push: Typen, Lint und die automatischen Tests (Startseite, Galerie, Anfrage, Barrierefreiheit).
 # Läuft mit festen Testdaten, nicht mit den echten Inhalten aus Sanity. Das Deployment bei Cloudflare ist davon unabhängig.
 name: Tests
 

@@ -8,7 +8,7 @@ const port = 4332;
 export default defineConfig({
   testDir: "./e2e",
   fullyParallel: true,
-  // Die langen Abläufe (ganzer Warenkorb) brauchen in der Handy-Ansicht etwas länger als die 30 s Standard
+  // Die langen Abläufe (Galerie, Formular) brauchen in der Handy-Ansicht etwas länger als die 30 s Standard
   timeout: 60_000,
   forbidOnly: Boolean(process.env.CI),
   retries: process.env.CI ? 1 : 0,
