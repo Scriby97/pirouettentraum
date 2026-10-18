@@ -16,6 +16,8 @@ cd studio && npm install && npm run dev   # http://localhost:3333
 ```
 
 Ohne `web/.env.local` zeigt die Website die Texte der alten Seite als Platzhalter (ohne Bilder).
+`npm run preview:local` zeigt dieselben Texte mit den Originalbildern aus `material/` (vorher Bilder nach `web/public/preview` kopieren).
+Nicht gleichzeitig `npm run build` oder die Tests laufen lassen – beide nutzen `.next`; sonst liefert die Vorschau 404 (dann `.next` löschen).
 
 ## Einrichtung (einmalig)
 
@@ -24,7 +26,10 @@ Ohne `web/.env.local` zeigt die Website die Texte der alten Seite als Platzhalte
 2. **Startinhalt übertragen:** `cd studio && npx sanity exec scripts/seed.ts --with-user-token`
    (Texte und alle Bilder der alten Seite; Wartungsmodus an, Passwort «Pirouette»).
 3. **Studio veröffentlichen:** `cd studio && npm run deploy` → https://pirouettentraum.sanity.studio
-4. **Web3Forms:** Access Key für pirouettentraum@gmail.com → `NEXT_PUBLIC_WEB3FORMS_KEY`.
+4. **Web3Forms:** Access Key → `NEXT_PUBLIC_WEB3FORMS_KEY` (Build-Variable in Cloudflare, lokal `web/.env.local`).
+   Web3Forms nimmt Anfragen nur von der beim Formular hinterlegten Website an (im Moment die workers.dev-Adresse,
+   lokal von `localhost` aus gesperrt). **Beim Domain-Umzug die Website-Adresse des Formulars auf `https://pirouettentraum.ch` ändern.**
+   Empfänger später unter «Linked Emails» auf pirouettentraum@gmail.com umstellen.
 5. **Cloudflare:** Worker aus dem GitHub-Repo bauen lassen (Root `web`, Build `npm run build`, Deploy `npx wrangler deploy`),
    Build-Variablen `NEXT_PUBLIC_*` setzen, Deploy-Hook als Sanity-Webhook eintragen.
 6. **Domain** pirouettentraum.ch von Jimdo zu Cloudflare umziehen, dann Web Analytics, Search Console,
