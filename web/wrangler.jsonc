@@ -1,0 +1,16 @@
+// Cloudflare Worker: liefert die statische Seite aus `out/` aus (worker/index.ts).
+// Build-Benachrichtigung: Queue «pirouettentraum-builds» + Secret NTFY_TOPIC, dann den Block «queues» unten aktivieren.
+{
+  "name": "pirouettentraum",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-09-01",
+  "assets": {
+    "directory": "./out",
+    "binding": "ASSETS",
+    // /galerie → galerie.html
+    "html_handling": "auto-trailing-slash",
+    // unbekannte Adressen → out/404.html
+    "not_found_handling": "404-page"
+  }
+  // "queues": { "consumers": [{ "queue": "pirouettentraum-builds", "max_batch_size": 10, "max_batch_timeout": 5 }] }
+}
