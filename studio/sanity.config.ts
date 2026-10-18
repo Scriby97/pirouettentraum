@@ -2,7 +2,7 @@ import {defineConfig} from 'sanity'
 import {structureTool} from 'sanity/structure'
 import {schemaTypes} from './schemaTypes'
 
-const projectId = process.env.SANITY_STUDIO_PROJECT_ID || 'stlaooi'
+const projectId = process.env.SANITY_STUDIO_PROJECT_ID || 'stlaoooi'
 const dataset = process.env.SANITY_STUDIO_DATASET || 'production'
 
 // Alle Inhalte stehen in einem einzigen Dokument «Website» – kein «Neu erstellen»/«Löschen»
