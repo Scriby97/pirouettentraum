@@ -27,6 +27,8 @@ export async function generateMetadata(): Promise<Metadata> {
     description: settings.heroSubtitle ?? undefined,
     metadataBase: new URL("https://pirouettentraum.ch"),
     openGraph: { images: og ? [{ url: og, width: 1200, height: 630 }] : undefined, locale: "de_CH", siteName },
+    // Build-Variable NOINDEX=1 (Vorschau unter workers.dev): Google soll die Seite noch nicht aufnehmen
+    robots: process.env.NOINDEX === "1" ? { index: false, follow: false } : undefined,
   };
 }
 
