@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  /* Farben aus dem Logo: Türkis-Stern, dazu Taupe und Creme wie auf der bisherigen Seite */
-  --color-cream: #f6f3ee;
-  --color-sand: #e9e4dc;
-  --color-taupe: #a19e8f;
-  /* dunkles Taupe für Flächen mit weisser Schrift (Kontrast > 5:1) */
-  --color-taupe-dark: #67645a;
-  --color-ink: #2d2b27;
-  /* mind. 4.5:1 Kontrast auf Creme und Sand (WCAG AA) */
-  --color-muted: #5c5850;
+  /* Klar und kühl wie Eis: fast Weiss und fast Schwarz, Türkis aus dem Logo als Akzent */
+  --color-cream: #f6f7f7;
+  --color-sand: #e9ecec;
+  --color-night: #0f1215;
+  --color-night-soft: #1a1f24;
+  --color-ink: #1b1f23;
+  /* mind. 4.5:1 Kontrast auf hellem Grund (WCAG AA) */
+  --color-muted: #545a60;
   --color-ice: #7ecfc7;
+  --color-ice-light: #dcf2ef;
   --color-accent: #1d6b64;
   --color-accent-dark: #15514c;
   --font-sans: var(--font-body);
@@ -23,5 +23,5 @@ body {
 }
 
 [id] {
-  scroll-margin-top: 2rem;
+  scroll-margin-top: 5rem;
 }

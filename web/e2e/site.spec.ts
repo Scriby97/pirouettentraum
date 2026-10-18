@@ -7,7 +7,9 @@ test.beforeEach(async ({ page }) => {
 
 test("Startseite: Begrüssung, Ablauf, Galerie-Vorschau, Anfrage-Knopf", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByRole("heading", { level: 1, name: "Herzlich Willkommen" })).toBeVisible();
+  // Begrüssung als kleine Zeile, der Untertitel ist die grosse Überschrift
+  await expect(page.getByText("Herzlich Willkommen bei Pirouettentraum")).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1, name: "Testdaten" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "So entsteht Dein Kürkleid" })).toBeVisible();
   await expect(page.locator("ol li")).toHaveCount(2);
   // Vorschau = die ersten vier Galeriebilder

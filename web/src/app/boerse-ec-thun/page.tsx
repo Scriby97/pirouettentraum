@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { PageTitle } from "@/components/PageTitle";
 import { notFound } from "next/navigation";
 import { RichText } from "@/components/RichText";
 import { SanityImage } from "@/components/SanityImage";
@@ -12,9 +13,9 @@ export default async function BoersePage() {
   if (settings.boerseVisible === false) notFound();
 
   return (
-    <section className="mx-auto grid max-w-6xl items-start gap-10 px-4 py-12 md:grid-cols-2">
+    <section className="mx-auto grid max-w-6xl items-start gap-10 px-4 pb-20 pt-14 md:grid-cols-2">
       <div>
-        <h1 className="mb-6 font-serif text-5xl">{settings.boerseTitle ?? "Börse EC Thun"}</h1>
+        <PageTitle eyebrow="Secondhand & Club-Bekleidung" title={settings.boerseTitle ?? "Börse EC Thun"} />
         <RichText value={settings.boerseText} className="text-lg leading-relaxed text-muted" />
       </div>
       {settings.boerseImage?.asset && (

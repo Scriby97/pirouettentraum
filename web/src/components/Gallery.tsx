@@ -33,7 +33,7 @@ export function Gallery({ photos }: { photos: GalleryPhoto[] }) {
             <button
               type="button"
               onClick={() => open(i)}
-              className="group relative block aspect-[3/4] w-full overflow-hidden rounded-xl bg-sand"
+              className="group relative block aspect-[3/4] w-full overflow-hidden rounded-2xl bg-sand"
               aria-label={`${photo.alt} gross anzeigen`}
             >
               <Image

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { PageTitle } from "@/components/PageTitle";
 import { getSettings, siteNameOf } from "@/lib/sanity";
 
 export const metadata: Metadata = { title: "Impressum" };
@@ -8,7 +9,7 @@ export default async function ImprintPage() {
 
   return (
     <section className="mx-auto max-w-3xl px-4 py-12">
-      <h1 className="mb-8 font-serif text-5xl">Impressum</h1>
+      <PageTitle title="Impressum" />
       <div className="flex flex-col gap-1 text-muted">
         <p className="text-ink">{siteNameOf(settings)}</p>
         {settings.ownerName && <p>Inhaberin: {settings.ownerName}</p>}

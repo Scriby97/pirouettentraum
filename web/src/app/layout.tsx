@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Abel, Inter } from "next/font/google";
+import { DM_Serif_Display, Inter } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { MaintenanceGate } from "@/components/MaintenanceGate";
@@ -11,8 +11,8 @@ import "./globals.css";
 // TODO: nach dem Einrichten in Cloudflare eintragen. In den Tests (E2E=1) immer aus.
 const analyticsToken = process.env.E2E === "1" ? "" : "";
 
-// Abel wie auf der bisherigen Seite (schmale, elegante Überschriften), Inter für den Fliesstext
-const heading = Abel({ variable: "--font-heading", subsets: ["latin"], weight: "400" });
+// Elegante Serifenschrift für Überschriften, Inter für den Fliesstext
+const heading = DM_Serif_Display({ variable: "--font-heading", subsets: ["latin"], weight: "400" });
 const body = Inter({ variable: "--font-body", subsets: ["latin"] });
 
 export async function generateMetadata(): Promise<Metadata> {

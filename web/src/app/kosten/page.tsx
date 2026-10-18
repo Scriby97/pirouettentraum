@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { PageTitle } from "@/components/PageTitle";
 import Link from "next/link";
 import { RichText } from "@/components/RichText";
 import { SanityImage } from "@/components/SanityImage";
@@ -22,12 +23,12 @@ export default async function CostsPage() {
   ].filter((p) => p !== false);
 
   return (
-    <section className="mx-auto max-w-5xl px-4 py-12">
-      <h1 className="mb-6 font-serif text-5xl">Kosten</h1>
+    <section className="mx-auto max-w-5xl px-4 pb-20 pt-14">
+      <PageTitle eyebrow="Transparent & fair" title="Kosten" />
       <div className="grid items-start gap-10 md:grid-cols-[3fr_2fr]">
         <RichText value={settings.costsText} className="text-lg leading-relaxed text-muted" />
         {prices.length > 0 && (
-          <dl className="flex flex-col gap-4 rounded-2xl bg-white p-6 shadow-sm">
+          <dl className="flex flex-col gap-4 rounded-3xl bg-white p-8 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.15)]">
             {prices.map((p) => (
               <div key={p.label} className="flex flex-col border-b border-sand pb-4 last:border-0 last:pb-0">
                 <dt className="text-sm uppercase tracking-wide text-accent">{p.label}</dt>
@@ -38,7 +39,7 @@ export default async function CostsPage() {
           </dl>
         )}
       </div>
-      <Link href="/kontakt" className="mt-10 inline-block rounded-full bg-accent px-6 py-3 text-white hover:bg-accent-dark">
+      <Link href="/kontakt" className="mt-10 inline-block rounded-full bg-night px-6 py-3 text-white transition hover:bg-accent">
         Unverbindlichen Kostenvoranschlag anfragen
       </Link>
       {settings.costsImages && settings.costsImages.length > 0 && (
