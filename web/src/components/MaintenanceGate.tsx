@@ -92,7 +92,7 @@ export function MaintenanceGate({
                 />
                 <button
                   type="submit"
-                  className="shrink-0 rounded-full bg-night px-5 py-2 text-white hover:bg-accent"
+                  className="shrink-0 rounded-full bg-accent px-5 py-2 text-white hover:bg-accent-dark"
                 >
                   Weiter
                 </button>

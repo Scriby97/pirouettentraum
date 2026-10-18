@@ -90,7 +90,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "sending" || !web3formsKey}
-        className="self-start rounded-full bg-night px-6 py-3 text-white transition hover:bg-accent disabled:opacity-50"
+        className="self-start rounded-full bg-accent px-6 py-3 text-white hover:bg-accent-dark disabled:opacity-50"
       >
         {status === "sending" ? "Wird gesendet …" : "Anfrage senden"}
       </button>
