@@ -4,7 +4,7 @@ import { RichText } from "@/components/RichText";
 import { SanityImage } from "@/components/SanityImage";
 import { getSettings } from "@/lib/sanity";
 
-export const metadata: Metadata = { title: "Kosten" };
+export const metadata: Metadata = { title: "Kosten", alternates: { canonical: "/kosten" } };
 
 // Ganze Franken ohne Rappen, z. B. «CHF 170.–»
 const chf = (n: number) => `CHF ${Number.isInteger(n) ? `${n}.–` : n.toFixed(2)}`;

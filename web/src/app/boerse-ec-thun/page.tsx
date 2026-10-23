@@ -4,7 +4,7 @@ import { RichText } from "@/components/RichText";
 import { SanityImage } from "@/components/SanityImage";
 import { getSettings } from "@/lib/sanity";
 
-export const metadata: Metadata = { title: "Börse EC Thun" };
+export const metadata: Metadata = { title: "Börse EC Thun", alternates: { canonical: "/boerse-ec-thun" } };
 
 export default async function BoersePage() {
   const settings = await getSettings();

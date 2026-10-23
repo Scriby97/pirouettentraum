@@ -4,7 +4,7 @@ import { RichText } from "@/components/RichText";
 import { SanityImage } from "@/components/SanityImage";
 import { getSettings, siteNameOf } from "@/lib/sanity";
 
-export const metadata: Metadata = { title: "Kontakt" };
+export const metadata: Metadata = { title: "Kontakt", alternates: { canonical: "/kontakt" } };
 
 export default async function ContactPage() {
   const settings = await getSettings();

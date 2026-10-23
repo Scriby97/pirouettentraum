@@ -1,9 +1,13 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Gallery } from "@/components/Gallery";
 import { RichText } from "@/components/RichText";
 import { SanityImage } from "@/components/SanityImage";
 import { galleryPhotos, getSettings, imageUrl, siteNameOf } from "@/lib/sanity";
+
+// Kanonische Adresse: Aufrufe mit Zusätzen wie ?fbclid=… (Facebook, WhatsApp) zählen als dieselbe Seite
+export const metadata: Metadata = { alternates: { canonical: "/" } };
 
 export default async function HomePage() {
   const settings = await getSettings();

@@ -10,8 +10,18 @@ interface Env {
 
 type QueueBatch = { messages: { body: unknown; ack(): void; retry(): void }[] };
 
+// Adressen der alten Jimdo-Seite, die neu anders heissen (Links bei Google, Lesezeichen).
+// Seiten mit gleicher Adresse (z. B. /galerie/) liefert Cloudflare direkt aus, ohne Umweg über den Worker.
+const OLD_PAGES: Record<string, string> = {
+  "/stephanie": "/ueber-mich",
+  "/cookie-einstellungen": "/datenschutz",
+};
+
 const worker = {
   async fetch(request: Request, env: Env): Promise<Response> {
+    const url = new URL(request.url);
+    const target = OLD_PAGES[url.pathname.replace(/\/+$/, "")];
+    if (target) return Response.redirect(new URL(target, url).toString(), 301);
     return env.ASSETS.fetch(request);
   },
 

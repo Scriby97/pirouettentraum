@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Gallery } from "@/components/Gallery";
 import { galleryPhotos, getSettings } from "@/lib/sanity";
 
-export const metadata: Metadata = { title: "Galerie", description: "Kürkleider aus dem Pirouettentraum-Atelier" };
+export const metadata: Metadata = { title: "Galerie", description: "Kürkleider aus dem Pirouettentraum-Atelier", alternates: { canonical: "/galerie" } };
 
 export default async function GalleryPage() {
   const settings = await getSettings();
