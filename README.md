@@ -7,6 +7,8 @@ gehostet als Cloudflare Worker.
 - `web/` – die Website (Next.js, statischer Export nach `web/out`)
 - `studio/` – Sanity Studio, in dem Stephanie Texte, Bilder und Preise pflegt
 - `material/` – Originalbilder und Inhalte der alten Seite (nicht im Repo)
+- `docs/Anleitung_ContentAendern.pdf` – Anleitung für Stephanie (Studio, Texte, Bilder, Galerie, Wartungsmodus);
+  Quelle: https://claude.ai/artifact/RRudtLLML81X91uVUd9d1a – nach Änderungen dort neu als PDF exportieren
 
 ## Lokal starten
 
