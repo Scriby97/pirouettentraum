@@ -27,13 +27,16 @@ Nicht gleichzeitig `npm run build` oder die Tests laufen lassen – beide nutzen
    (Texte und alle Bilder der alten Seite; Wartungsmodus an, Passwort «Pirouette»).
 3. **Studio veröffentlichen:** `cd studio && npm run deploy` → https://pirouettentraum.sanity.studio
 4. **Web3Forms:** Access Key → `NEXT_PUBLIC_WEB3FORMS_KEY` (Build-Variable in Cloudflare, lokal `web/.env.local`).
-   Web3Forms nimmt Anfragen nur von der beim Formular hinterlegten Website an (im Moment die workers.dev-Adresse,
-   lokal von `localhost` aus gesperrt). **Beim Domain-Umzug die Website-Adresse des Formulars auf `https://pirouettentraum.ch` ändern.**
+   Web3Forms nimmt Anfragen nur von der beim Formular hinterlegten Website an (`https://pirouettentraum.ch`,
+   lokal von `localhost` aus gesperrt). Empfänger: pirouettentraum@gmail.com (Formular im Web3Forms-Konto von Nicolas).
    Empfänger später unter «Linked Emails» auf pirouettentraum@gmail.com umstellen.
 5. **Cloudflare:** Worker aus dem GitHub-Repo bauen lassen (Root `web`, Build `npm run build`, Deploy `npx wrangler deploy`),
    Build-Variablen `NEXT_PUBLIC_*` setzen, Deploy-Hook als Sanity-Webhook eintragen.
-6. **Domain** pirouettentraum.ch von Jimdo zu Cloudflare umziehen, dann Web Analytics, Search Console,
-   Umleitung www → Hauptadresse.
+6. **Domain** (erledigt am 23.10.2026): pirouettentraum.ch liegt bei Infomaniak (Inhaberin Stephanie),
+   Nameserver bei Cloudflare. Custom Domains `pirouettentraum.ch` und `www.pirouettentraum.ch` am Worker,
+   Redirect Rule www → ohne www, «Always Use HTTPS», workers.dev ausgeschaltet. Alte Jimdo-Adressen
+   `/stephanie/` und `/cookie-einstellungen/` leitet `web/worker/index.ts` weiter.
+   Offen: Web Analytics (Token in `web/src/app/layout.tsx`), Search Console, Jimdo kündigen.
 
 ## Neues Feld in Sanity
 
