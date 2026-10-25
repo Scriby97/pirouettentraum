@@ -36,7 +36,7 @@ Nicht gleichzeitig `npm run build` oder die Tests laufen lassen – beide nutzen
    Nameserver bei Cloudflare. Custom Domains `pirouettentraum.ch` und `www.pirouettentraum.ch` am Worker,
    Redirect Rule www → ohne www, «Always Use HTTPS», workers.dev ausgeschaltet. Alte Jimdo-Adressen
    `/stephanie/` und `/cookie-einstellungen/` leitet `web/worker/index.ts` weiter.
-   Offen: Web Analytics (Token in `web/src/app/layout.tsx`), Search Console, Jimdo kündigen.
+   Web Analytics (Token in `web/src/app/layout.tsx`) und Search Console eingerichtet, Jimdo gekündigt (25.10.2026).
 
 ## Neues Feld in Sanity
 

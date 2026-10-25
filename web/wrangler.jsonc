@@ -1,5 +1,7 @@
 // Cloudflare Worker: liefert die statische Seite aus `out/` aus (worker/index.ts).
-// Build-Benachrichtigung: Queue «pirouettentraum-builds» + Secret NTFY_TOPIC, dann den Block «queues» unten aktivieren.
+// Build-Benachrichtigung: zuerst in Cloudflare die Queue «pirouettentraum-builds» anlegen, sie für
+// Workers Builds → pirouettentraum → build.failed abonnieren und das Secret NTFY_TOPIC setzen;
+// erst dann den Block «queues» unten aktivieren (sonst schlägt der Deploy fehl).
 {
   "name": "pirouettentraum",
   "main": "worker/index.ts",
