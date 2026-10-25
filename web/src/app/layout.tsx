@@ -7,9 +7,8 @@ import { navLinks } from "@/lib/nav";
 import { getSettings, imageUrl, siteNameOf, type SiteSettings } from "@/lib/sanity";
 import "./globals.css";
 
-// Token aus Cloudflare → Web Analytics (öffentlich, steht ohnehin im HTML). Leer = keine Statistik.
-// TODO: nach dem Einrichten in Cloudflare eintragen. In den Tests (E2E=1) immer aus.
-const analyticsToken = process.env.E2E === "1" ? "" : "";
+// Token aus Cloudflare → Web Analytics (öffentlich, steht ohnehin im HTML). In den Tests (E2E=1) aus.
+const analyticsToken = process.env.E2E === "1" ? "" : "0c653921d23e49048a5174fd55d52281";
 
 // Abel wie auf der bisherigen Seite (schmale, elegante Überschriften), Inter für den Fliesstext
 const heading = Abel({ variable: "--font-heading", subsets: ["latin"], weight: "400" });
