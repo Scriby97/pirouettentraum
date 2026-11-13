@@ -27,9 +27,9 @@ export function Gallery({ photos }: { photos: GalleryPhoto[] }) {
 
   return (
     <>
-      <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+      <ul className="reveal-row grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
         {photos.map((photo, i) => (
-          <li key={photo.full}>
+          <li key={photo.full} className="reveal">
             <button
               type="button"
               onClick={() => open(i)}
@@ -41,7 +41,7 @@ export function Gallery({ photos }: { photos: GalleryPhoto[] }) {
                 alt={photo.alt}
                 fill
                 sizes="(min-width: 1024px) 280px, (min-width: 640px) 33vw, 50vw"
-                className="object-cover transition duration-300 group-hover:scale-105"
+                className="object-cover transition duration-700 ease-out group-hover:scale-105"
               />
             </button>
             {photo.caption && <p className="mt-1 text-sm text-muted">{photo.caption}</p>}
